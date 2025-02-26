@@ -1,7 +1,16 @@
 <h1><%= @restaurant.name %></h1>
 <h3><%= @restaurant.category %></h3>
 <h3><%= @restaurant.address %></h3>
+<p><strong>Reviews</strong></p>
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><%= "⭐" * review.rating %>: <%= review.content %></li>
+  <% end %>
+</ul>
+<br>
 
-<%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant)%>
+<%= link_to "Review this restaurant", new_restaurant_review_path(@restaurant)%>
 <%= link_to "Back to all restaurants", restaurants_path %>
-<%= link_to "Delete this restaurant", restaurant_path(@restaurant), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+
+<%# <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant)%>
+<%# <%= link_to "Delete this restaurant", restaurant_path(@restaurant), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
