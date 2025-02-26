@@ -1,0 +1,7 @@
+<h1><%= @restaurant.name %></h1>
+<h3><%= @restaurant.category %></h3>
+<h3><%= @restaurant.address %></h3>
+
+<%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant)%>
+<%= link_to "Back to all restaurants", restaurants_path %>
+<%= link_to "Delete this restaurant", restaurant_path(@restaurant), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
